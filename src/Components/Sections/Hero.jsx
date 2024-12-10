@@ -13,6 +13,20 @@ const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
 
+  const heroSectionTag = [
+    <>
+      G<b>a</b>ming
+    </>,
+    <>
+      Ide<b>n</b>tity
+    </>,
+    <>
+      re<b>a</b>lity
+    </>,
+    <>
+      lif<b>e</b>style
+    </>,
+  ];
   const totalVideos = 4;
   const nextVideoRef = useRef(null);
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
@@ -25,7 +39,6 @@ const Hero = () => {
   const handleMiniVideoClick = () => {
     setHasClicked(true);
     setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
-    
   };
 
   useEffect(() => {
@@ -138,7 +151,7 @@ const Hero = () => {
           onLoadedData={handleVideoLoad}
         />
         <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          G<b>a</b>ming
+          {heroSectionTag[currentIndex - 1]}
         </h1>
         <div className="z-40 absolute left-0 top-0 size-full">
           <div className="mt-24 px-5 sm:px-10">
@@ -158,7 +171,7 @@ const Hero = () => {
         </div>
       </div>
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-        G<b>a</b>ming
+        {heroSectionTag[currentIndex - 1]}
       </h1>
     </div>
   );
